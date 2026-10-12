@@ -1,0 +1,48 @@
+/* Вариант 3 · «Лак» (prompt 3): разлив от винного к пудровому, карточка работы поднимается с отражением */
+:root{--bg:#f6ebe7;--fg:#3a1119;--line:rgba(90,20,36,.18);--main:#5a1424;--main-fg:#fbefe9;--hd-bg:rgba(246,235,231,.9);--hd-line:rgba(90,20,36,.12);--strip-bg:#3a0d17;--strip-fg:#f6dcd3;--ft-bg:#3a0d17;--ft-fg:#f6dcd3;--radius-btn:999px;--radius-card:22px;--map-bg:#efdcd6;--logo-font:400 21px/1 "Prata",serif}
+h1,h2,h3{font-family:"Prata",serif;font-weight:400;line-height:1.12}
+h2{font-size:clamp(30px,4.8vw,50px);margin-bottom:26px}
+.pour{position:absolute;left:0;right:0;top:0;height:1700px;z-index:-1;background:linear-gradient(180deg,#5a1424 0,#7d2a3a 30%,#c98d92 62%,#f6ebe7 100%)}
+body{position:relative}
+.hero3{color:#fbefe9;padding:44px 0 72px;overflow:hidden}
+.hero3__in{display:grid;gap:44px;align-items:center}
+.hero3__txt{display:grid;gap:18px;justify-items:start}
+.hero3 h1{font-size:clamp(36px,6.6vw,74px)}
+.hero3 p{max-width:30em;color:#f3d6d0}
+.hero3 .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
+.hero3 .btn--line{color:#fbefe9;border-color:rgba(251,239,233,.7)}
+@media (min-width:900px){.hero3{padding:80px 0 110px}.hero3__in{grid-template-columns:1.1fr .9fr;gap:64px}}
+.lift{justify-self:center;width:min(78vw,380px);perspective:900px}
+.lift__card{position:relative;margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(30,4,10,.6);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease;animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+.lift__card img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.lift__shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) var(--sx,45%),transparent 62%);mix-blend-mode:soft-light;pointer-events:none}
+.lift__mirror{height:70px;margin-top:6px;overflow:hidden;border-radius:22px;transform:scaleY(-1);opacity:.35;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+.lift__mirror img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:bottom}
+.lift__cap{margin-top:8px;text-align:center;font-size:13px;letter-spacing:.06em;color:#fbefe9}
+.lift__card.ring::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px rgba(251,239,233,.85);animation:ring .6s ease forwards}
+@keyframes ring{from{opacity:1}to{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(80px)}to{opacity:1}}
+.s-dark{background:#5a1424;color:#fbefe9;--line:rgba(251,239,233,.22)}
+.s-mid{background:#efd9d4}
+.s-light{background:var(--bg)}
+.about3{display:grid;gap:24px;margin-bottom:36px}
+.about3 p+p{margin-top:14px}
+@media (min-width:900px){.about3{grid-template-columns:1fr 1fr;gap:56px}}
+.pills{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
+.pills li{padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:15px}
+.s-dark .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
+.s-dark .btn--line{color:#fbefe9;border-color:#fbefe9}
+.gal img{border-radius:var(--radius-card)}
+.drops{display:grid;gap:16px}
+@media (min-width:760px){.drops{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.drops li{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:var(--radius-card);background:#fbf3f0;box-shadow:0 10px 30px -18px rgba(90,20,36,.45)}
+.drops h3{font-size:24px}
+.drops__cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:16px;padding:22px 26px;border-radius:var(--radius-card);background:#5a1424;color:#fbefe9}
+.drops__cta .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
+.rv{padding:26px;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 30px -20px rgba(90,20,36,.5)}
+.rv blockquote{font-family:"Prata",serif;font-size:18px;line-height:1.5}
+.contacts h2{margin-bottom:0}
+.rate a{background:#fff}
+html.anim.t3 [data-in]{transform:translateY(22px) scale(.98)}
+html.anim.t3 [data-in].is-in{transform:none}
+@media (prefers-reduced-motion:reduce){.lift__card,.lift__mirror{animation:none}}

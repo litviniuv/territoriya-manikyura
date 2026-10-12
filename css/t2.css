@@ -3,8 +3,8 @@
 body{background:#2f2721}
 .hd{color:var(--fg)}
 .bgph{position:fixed;inset:0;height:100vh;height:100lvh;z-index:-2;overflow:hidden}
-.bgph img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
-.bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,22,17,.82) 0,rgba(30,22,17,.5) 48%,rgba(30,22,17,.2) 100%),linear-gradient(0deg,rgba(30,22,17,.55),transparent 45%)}
+.bgph img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;filter:blur(7px) saturate(.8) brightness(.82);transform:scale(1.08)}
+.bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(74,56,42,.32),rgba(74,56,42,.32)),linear-gradient(90deg,rgba(30,22,17,.82) 0,rgba(30,22,17,.5) 48%,rgba(30,22,17,.2) 100%),linear-gradient(0deg,rgba(30,22,17,.55),transparent 45%)}
 .prog{position:fixed;left:0;right:0;top:var(--bar,110px);height:3px;z-index:58;pointer-events:none}
 .prog i{display:block;height:100%;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(var(--p,0))}
 html.sheet-open .prog{display:none}

@@ -2,8 +2,8 @@
 :root{--bg:#14110f;--fg:#f4eee8;--line:rgba(244,238,232,.22);--main:#ff8a6b;--main-fg:#1b0f0b;--hd-bg:rgba(20,17,15,.72);--hd-line:rgba(244,238,232,.12);--strip-bg:#f4eee8;--strip-fg:#14110f;--ft-bg:rgba(10,8,7,.92);--ft-fg:#f4eee8;--radius-btn:999px;--radius-card:18px;--map-bg:rgba(20,17,15,.6);--sheet-bg:#14110f;--logo-font:400 20px/1 "Prata",serif;--focus:#ff8a6b}
 body{background:#14110f}
 .bgph{position:fixed;inset:0;height:100vh;height:100lvh;z-index:-2;overflow:hidden;background:#14110f}
-.bgph img{width:100%;height:100%;object-fit:cover;object-position:55% 40%;transform:translate(var(--mx,0),var(--my,0)) scale(1.05);transition:transform .6s ease-out}
-.bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,10,.25) 0,rgba(14,11,10,.55) 55%,rgba(14,11,10,.88) 100%)}
+.bgph img{width:100%;height:100%;object-fit:cover;object-position:55% 40%;transform:translate(var(--mx,0),var(--my,0)) scale(1.1);filter:blur(6px) brightness(.78) saturate(.85);transition:transform .6s ease-out}
+.bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,10,.38) 0,rgba(14,11,10,.62) 55%,rgba(14,11,10,.9) 100%)}
 .curtain{position:fixed;inset:0;z-index:70;background:#f4eee8;pointer-events:none;animation:lift3 .9s ease .15s both}
 @keyframes lift3{from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
 .bgph{animation:open3 1.7s cubic-bezier(.3,.7,.2,1) .25s both}
@@ -18,7 +18,7 @@ h2{font-size:clamp(32px,5vw,56px);margin-bottom:26px}
 .giant{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:6vh;text-shadow:none}
 .giant__w{display:block;font-size:clamp(38px,13.2vw,200px);line-height:.95;letter-spacing:-.01em;color:#f4eee8;white-space:nowrap}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
-.giant__w{background:url(../images/bg-hall.webp) 55% 40%/cover fixed;-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(2.1) contrast(1.1) drop-shadow(0 4px 24px rgba(0,0,0,.35))}}
+.giant__w{background:url(../images/bg-hall.webp) 55% 40%/cover fixed;-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(2.7) contrast(1.15) saturate(.7) drop-shadow(0 4px 24px rgba(0,0,0,.45));-webkit-text-stroke:1px rgba(244,238,232,.7)}}
 .giant__s{display:block;margin-top:10px;font:500 clamp(13px,1.6vw,18px)/1.2 "Onest",sans-serif;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
 .hero3__foot{display:grid;gap:18px;justify-items:start;max-width:34em}
 .hero3__foot p{font-size:18px}

@@ -1,48 +1,50 @@
-/* Вариант 3 · «Лак» (prompt 3): разлив от винного к пудровому, карточка работы поднимается с отражением */
-:root{--bg:#f6ebe7;--fg:#3a1119;--line:rgba(90,20,36,.18);--main:#5a1424;--main-fg:#fbefe9;--hd-bg:rgba(246,235,231,.9);--hd-line:rgba(90,20,36,.12);--strip-bg:#3a0d17;--strip-fg:#f6dcd3;--ft-bg:#3a0d17;--ft-fg:#f6dcd3;--radius-btn:999px;--radius-card:22px;--map-bg:#efdcd6;--logo-font:400 21px/1 "Prata",serif}
-h1,h2,h3{font-family:"Prata",serif;font-weight:400;line-height:1.12}
-h2{font-size:clamp(30px,4.8vw,50px);margin-bottom:26px}
-.pour{position:absolute;left:0;right:0;top:0;height:1700px;z-index:-1;background:linear-gradient(180deg,#5a1424 0,#7d2a3a 30%,#c98d92 62%,#f6ebe7 100%)}
-body{position:relative}
-.hero3{color:#fbefe9;padding:44px 0 72px;overflow:hidden}
-.hero3__in{display:grid;gap:44px;align-items:center}
-.hero3__txt{display:grid;gap:18px;justify-items:start}
-.hero3 h1{font-size:clamp(36px,6.6vw,74px)}
-.hero3 p{max-width:30em;color:#f3d6d0}
-.hero3 .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
-.hero3 .btn--line{color:#fbefe9;border-color:rgba(251,239,233,.7)}
-@media (min-width:900px){.hero3{padding:80px 0 110px}.hero3__in{grid-template-columns:1.1fr .9fr;gap:64px}}
-.lift{justify-self:center;width:min(78vw,380px);perspective:900px}
-.lift__card{position:relative;margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(30,4,10,.6);transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease;animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
-.lift__card img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.lift__shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) var(--sx,45%),transparent 62%);mix-blend-mode:soft-light;pointer-events:none}
-.lift__mirror{height:70px;margin-top:6px;overflow:hidden;border-radius:22px;transform:scaleY(-1);opacity:.35;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
-.lift__mirror img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:bottom}
-.lift__cap{margin-top:8px;text-align:center;font-size:13px;letter-spacing:.06em;color:#fbefe9}
-.lift__card.ring::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px rgba(251,239,233,.85);animation:ring .6s ease forwards}
-@keyframes ring{from{opacity:1}to{opacity:0}}
-@keyframes rise{from{opacity:0;transform:translateY(80px)}to{opacity:1}}
-.s-dark{background:#5a1424;color:#fbefe9;--line:rgba(251,239,233,.22)}
-.s-mid{background:#efd9d4}
-.s-light{background:var(--bg)}
-.about3{display:grid;gap:24px;margin-bottom:36px}
+/* Вариант 3 · prompt 7 «Сильное фото за огромным словом»: зал с неоновой линией под всей страницей, слово «Территория» из света этого фото */
+:root{--bg:#14110f;--fg:#f4eee8;--line:rgba(244,238,232,.22);--main:#ff8a6b;--main-fg:#1b0f0b;--hd-bg:rgba(20,17,15,.72);--hd-line:rgba(244,238,232,.12);--strip-bg:#f4eee8;--strip-fg:#14110f;--ft-bg:rgba(10,8,7,.92);--ft-fg:#f4eee8;--radius-btn:999px;--radius-card:18px;--map-bg:rgba(20,17,15,.6);--sheet-bg:#14110f;--logo-font:400 20px/1 "Prata",serif;--focus:#ff8a6b}
+body{background:#14110f}
+.bgph{position:fixed;inset:0;height:100vh;height:100lvh;z-index:-2;overflow:hidden;background:#14110f}
+.bgph img{width:100%;height:100%;object-fit:cover;object-position:55% 40%;transform:translate(var(--mx,0),var(--my,0)) scale(1.05);transition:transform .6s ease-out}
+.bgph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,10,.25) 0,rgba(14,11,10,.55) 55%,rgba(14,11,10,.88) 100%)}
+.curtain{position:fixed;inset:0;z-index:70;background:#f4eee8;pointer-events:none;animation:lift3 .9s ease .15s both}
+@keyframes lift3{from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
+.bgph{animation:open3 1.7s cubic-bezier(.3,.7,.2,1) .25s both}
+@keyframes open3{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+.giant__w{animation:kern3 1.6s cubic-bezier(.2,.8,.2,1) .7s both}
+@keyframes kern3{from{letter-spacing:.2em;opacity:0}to{letter-spacing:-.01em;opacity:1}}
+h1,h2,h3{font-family:"Prata",serif;font-weight:400;line-height:1.1}
+.sec,.hero3{text-shadow:0 1px 14px rgba(0,0,0,.55)}
+h2{font-size:clamp(32px,5vw,56px);margin-bottom:26px}
+.hero3{min-height:calc(100vh - var(--bar,110px));min-height:calc(100svh - var(--bar,110px));display:flex;overflow:hidden}
+.hero3__in{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:48px 0 44px}
+.giant{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:6vh;text-shadow:none}
+.giant__w{display:block;font-size:clamp(38px,13.2vw,200px);line-height:.95;letter-spacing:-.01em;color:#f4eee8;white-space:nowrap}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+.giant__w{background:url(../images/bg-hall.webp) 55% 40%/cover fixed;-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(2.1) contrast(1.1) drop-shadow(0 4px 24px rgba(0,0,0,.35))}}
+.giant__s{display:block;margin-top:10px;font:500 clamp(13px,1.6vw,18px)/1.2 "Onest",sans-serif;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
+.hero3__foot{display:grid;gap:18px;justify-items:start;max-width:34em}
+.hero3__foot p{font-size:18px}
+@media (min-width:900px){.hero3__foot{grid-template-columns:1fr auto;max-width:none;align-items:center;gap:40px}.hero3__foot p{max-width:30em}}
+.about3{display:grid;gap:28px;margin-bottom:36px}
 .about3 p+p{margin-top:14px}
-@media (min-width:900px){.about3{grid-template-columns:1fr 1fr;gap:56px}}
-.pills{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
-.pills li{padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-size:15px}
-.s-dark .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
-.s-dark .btn--line{color:#fbefe9;border-color:#fbefe9}
+@media (min-width:900px){.about3{grid-template-columns:1.2fr 1fr;gap:64px}}
+.lines3 li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
 .gal img{border-radius:var(--radius-card)}
-.drops{display:grid;gap:16px}
-@media (min-width:760px){.drops{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.drops li{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:var(--radius-card);background:#fbf3f0;box-shadow:0 10px 30px -18px rgba(90,20,36,.45)}
-.drops h3{font-size:24px}
-.drops__cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:16px;padding:22px 26px;border-radius:var(--radius-card);background:#5a1424;color:#fbefe9}
-.drops__cta .btn--main{background:#fbefe9;color:#5a1424;border-color:#fbefe9}
-.rv{padding:26px;border-radius:var(--radius-card);background:#fff;box-shadow:0 10px 30px -20px rgba(90,20,36,.5)}
+html.anim.t3 .gal [data-in] img{clip-path:circle(0% at 50% 50%);transition:clip-path 1.1s cubic-bezier(.3,.7,.2,1)}
+html.anim.t3 .gal [data-in].is-in img{clip-path:circle(75% at 50% 50%)}
+.svc3{counter-reset:s;display:grid;gap:0}
+.svc3 li{counter-increment:s;display:grid;gap:8px;padding:24px 0;border-top:1px solid var(--line)}
+.svc3 h3{font-size:clamp(26px,3.4vw,40px)}
+.svc3 h3::before{content:counter(s,decimal-leading-zero) "  ";font:500 13px/1 "Onest",sans-serif;letter-spacing:.1em;color:var(--main);vertical-align:middle}
+@media (min-width:860px){.svc3 li{grid-template-columns:1fr 1.2fr;align-items:baseline;gap:40px}}
+.svc3__cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding-top:24px;border-top:1px solid var(--line)}
+.rv{padding:24px;border-radius:var(--radius-card);background:rgba(16,13,12,.62);border:1px solid var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .rv blockquote{font-family:"Prata",serif;font-size:18px;line-height:1.5}
 .contacts h2{margin-bottom:0}
-.rate a{background:#fff}
-html.anim.t3 [data-in]{transform:translateY(22px) scale(.98)}
+.contacts__txt,.map{border-radius:var(--radius-card)}
+.btn--line{border-color:rgba(244,238,232,.75)}
+.rate a{background:rgba(16,13,12,.55)}
+.map{border:1px solid var(--line);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.sheet{text-shadow:none}
+html.anim.t3 [data-in]{transform:translateY(16px)}
 html.anim.t3 [data-in].is-in{transform:none}
-@media (prefers-reduced-motion:reduce){.lift__card,.lift__mirror{animation:none}}
+html.anim.t3 .gal [data-in]{transform:none}
+@media (prefers-reduced-motion:reduce){.bgph,.giant__w{animation:none}.curtain{display:none}}

@@ -40,3 +40,4 @@ html.anim.t2 .gal [data-in].is-in{transform:none}
 .contacts h2{margin-bottom:0}
 .rate a{border-color:#333}
 .map__ph{background:repeating-linear-gradient(90deg,#141414 0 39px,#1d1d1d 39px 40px),#141414}
+html.anim.t2 [data-in].is-in{transform:none}
